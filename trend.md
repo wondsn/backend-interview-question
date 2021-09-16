@@ -1,8 +1,8 @@
-- Docker
-    - 도커란 무엇인가요?
-        - 컨테이너 기반의 가상화 도구.
-        - 이전의 가상머신은 하드웨어를 소프트웨어로 가상화하는 방식을 사용 → 리소스를 많이 잡아먹음
-        - 도커는 커널을 공유하면서 프로세스 격리에 기반한 가상화 방법 → 커널을 공유하기 때문에 도커에서 프로세스에 올라가는 리소스만 관리. 커널을 호스트 커널을 사용
+<details><summary>Docker</summary>
+
+    - 컨테이너 기반의 가상화 도구.
+    - 이전의 가상머신은 하드웨어를 소프트웨어로 가상화하는 방식을 사용 → 리소스를 많이 잡아먹음
+    - 도커는 커널을 공유하면서 프로세스 격리에 기반한 가상화 방법 → 커널을 공유하기 때문에 도커에서 프로세스에 올라가는 리소스만 관리. 커널을 호스트 커널을 사용
     - 도커 레이어 계층을 설명해주세요
         - 도커 이미지는 컨테이너를 실행하기 위한 모든 정보를 가지고 있기 때문에 용량이 매우 큼
         - 이런 문제를 해결하기 위해 이미지를 레이어라는 개념으로 나누어 저장
@@ -17,18 +17,26 @@
     - Docker Compose 파일은 무엇인가요?
         - Docker Container 오케스트레이션 툴
         - 컨테이너 사양을 yaml 파일에 명시적으로 선언하여 여러 개의 컨테이너의 실행을 한번에 관리할 수 있게 해줍니다.
-- k8s 서비스
+</details>
+<details><summary>k8s 서비스</summary>
+
     - [https://blog.leocat.kr/notes/2019/08/22/translation-kubernetes-nodeport-vs-loadbalancer-vs-ingress](https://blog.leocat.kr/notes/2019/08/22/translation-kubernetes-nodeport-vs-loadbalancer-vs-ingress)
-- k8s 환경에서 같은 서버 이미지인데 환경별로 다르게 해야할 때 어떤걸 써야하나요? ★
+</details>
+<details><summary>k8s 환경에서 같은 서버 이미지인데 환경별로 다르게 해야할 때 어떤걸 써야하나요? ★</summary>
+
     - 컨피그맵을 이용하여 운영환경별로 환경변수를 다르게 세팅하면 됩니다.
-- k8s 배포방식에는 어떤 것이 있을까요? 아는대로 설명해주세요 ★
+</details>
+<details><summary>k8s 배포방식에는 어떤 것이 있을까요? 아는대로 설명해주세요 ★</summary>
+
     - Rolling Update, Blue-Green, Canary Update 등이 있습니다.
     - Rolling Update
     - Blue-Green Update
     - Canary Update
+</details>
 - DDD(Domain-Driven Design)이 무엇인가요??
 - MSA 아키텍처 설명: [https://woongsin94.tistory.com/383](https://woongsin94.tistory.com/383)
-- RabbitMQ와 Kafka가 어떻게 다른가요?
+<details><summary>RabbitMQ와 Kafka가 어떻게 다른가요?</summary>
+
     - RabbitMQ는 메시지 브로커 방식이고, Kafka는 Pub/Sub 방식입니다.
     - 메시지 브로커
         - 응용프로그램, 서비스 및 시스템이 정보를 통신하고 교환할 수 있도록 하는 소프트웨어 모듈
@@ -39,14 +47,18 @@
         - 하나의 토픽에 대해 Producer가 Publish하고, Consumer가 Subscribe하는 방식
         - Producer가 이벤트(메시지)를 만들어서 브로커내 특정 Topic으로 전달한다.
         - Consumer는 Subscribe 하고있는 Topic에 이벤트가 들어오면 이벤트를 가져온다.
-- 메시지큐의 장점 ★
+</details>
+<details><summary>메시지큐의 장점 ★</summary>
+
     - 비동기: Queue에 메시지를 넣기 때문에 나중에 처리할 수 있음(실제로 파일에 적음)
     - 비동조: Application과 분리할 수 있음
     - 탄력성: 일부가 실패해도 전체에 영향을 받지 않습니다.
     - 과잉: 실패할 경우 재실행이 가능
     - 보증: 작업이 처리된 걸 확인할 수 있음
     - 확장성: 다수의 프로세스들이 큐에 메시지를 보낼 수 있습니다.
-- Kafka vs RabbitMQ ★★
+</details>
+<details><summary>Kafka vs RabbitMQ ★★</summary>
+
     - Kafka
 
         복잡한 라우팅에 의존하지 않고, 최대 처리량(10k/sec)으로 스트리밍하는데 적합. 이벤트 소싱, 스트림 처리 및 일련의 이벤트로 시스템에 대한 모델링 변경을 수행하는데 이상적. 메시지를 영구적으로 저장하기 때문에 이상적임
@@ -57,7 +69,9 @@
 
         장시간 실행되는 테스크, 안정적인 백그라운드 작업 실행, 애플리케이션 간 내부 통신/통합이 필요할 때 적합
 
-- 카프카가 뭔가요? 구조를 자세히 설명해주세요. ★
+</details>
+<details><summary>카프카가 뭔가요? 구조를 자세히 설명해주세요. ★</summary>
+
     - 대용량의 실시간 로그처리에 특화된 아키텍쳐 설계를 통해 기존 메시징 시스템보다 우수한 TPS를 보여줌
     - Message Queuing Model과 Pub/Sub Model의 특징을 겸비
         - Message Queuing Model: 컨슈머가 분산 처리로 메시지를 소비하는 모델
@@ -110,7 +124,9 @@
         각 파티션에 수산한 메시지에 일련번호를 부여합니다. 파티션 단위로 메시지 위치를 나타내는 오프셋이라는 관리 정보를 이용해 컨슈머가 취득하는 메시지의 범위 및 재시도를 제어합니다.
 
     - [https://baek.dev/post/20/](https://baek.dev/post/20/)
-- RabbitMQ에 대해 설명해주세요. ★
+</details>
+<details><summary>RabbitMQ에 대해 설명해주세요. ★</summary>
+
     - Producer - Broker - Consumer로 구성되어 있습니다.
 
         [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc1jNIo%2FbtqF3Gz7CXx%2FE5DgxajmcBCNjN25eELvhK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc1jNIo%2FbtqF3Gz7CXx%2FE5DgxajmcBCNjN25eELvhK%2Fimg.png)
@@ -159,7 +175,8 @@
 
         Header exchange를 사용하면 binding key는 무시되고, 헤더 값이 바인딩 시 지정된 값과 같은 경우에만 일치하는 것으로 간주한다.
 
-- 각 회사 장애 상황 블로그글
+</details>
+<details><summary>각 회사 장애 상황 블로그글</summary>
 
     RIDI: [https://ridicorp.com/story/idc-outage/](https://ridicorp.com/story/idc-outage/)
 
@@ -168,3 +185,4 @@
     라인 장애 보고 및 후속절차: [https://engineering.linecorp.com/ko/blog/line-failure-reporting-and-follow-up-process-culture/](https://engineering.linecorp.com/ko/blog/line-failure-reporting-and-follow-up-process-culture/)
 
     외부 서비스 장애: [https://mjspring.medium.com/why-시리즈-1-e-010-외부-서비스-장애-611ac6f2c192](https://mjspring.medium.com/why-%EC%8B%9C%EB%A6%AC%EC%A6%88-1-e-010-%EC%99%B8%EB%B6%80-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%9E%A5%EC%95%A0-611ac6f2c192)
+</details>

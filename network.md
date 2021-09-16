@@ -1,5 +1,7 @@
-- REST API가 무엇인가요? ★
+<details><summary>REST API가 무엇인가요? ★</summary>
+
     - REST 아키텍처의 제약조건을 준수하는 API를 의미
+
     - 리소스(URI) 상태에 대한 행위(HTTP METHOD)를 표현(Representations)하는 방식
     - REST 특징
         - 유니폼 인터페이스
@@ -22,7 +24,9 @@
         - PUT은 해당 리소스가 없으면 생성하고, **있으면 새로운 걸로 대체**
             - 클라이언트가 리소스 위치를 알고 URI를 지정
             - 기존 데이터가 사라질 우려가 있음
-- Keep-alive는 무엇인가요? (지속 연결과 이어짐)
+</details>
+<details><summary>Keep-alive는 무엇인가요? (지속 연결과 이어짐)</summary>
+
     - HTTP/1.1부터 도입. socket에 IN/OUT의 access가 마지막으로 종료된 시점부터 정의된 시간까지 access가 없더라도 대기하는 구조
         - 정의된 시간내에 access가 이루어진다면 계속 연결된 상태를 유지할 수 있음
         - HTTP는 connection less 방식이라 매번 socket(port)를 열어야 하는 비효율적인 구조
@@ -36,8 +40,9 @@
         - timeout: 유휴 연결이 계속 열려 있어야 하는 최소 시간을 가르킴
         - max: 연결이 닫히기 이전에 전송될 수 있는 최대 요청 수를 가리킴.
     - [https://goodgid.github.io/HTTP-Keep-Alive/](https://goodgid.github.io/HTTP-Keep-Alive/)
-- Cache에 대해 설명해주세요.
-- HTTP 정의 ★
+</details>
+<details><summary>HTTP 정의 ★</summary>
+
     - 클라이언트와 서버 모델에서 데이터를 주고 받기 위한 프로토콜
     - 애플리케이션 레벨의 프로토콜로 TCP/IP 위에서 동작
     - Stateless한 프로토콜이다.
@@ -57,11 +62,15 @@
         - 서버 입장에서 서버 자원을 효율적으로 사용할 수 있음.
         - 하지만 연결할 때마다 3-way handshake 시간이 추가됨
         - 지금은 HTTP 지속 연결로 문제 해결
-- Stateless한게 뭔가요?
+</details>
+<details><summary>Stateless한게 뭔가요?</summary>
+
     - Stateful하면 중간에 요청을 처리하기 위한 컨텍스트를 저장하고 있어야한다.
     - Stateless하면 응답 받는 서버가 바뀌어도 요청을 처리할 수 있다.
     - Stateful을 유지해아하는 경우가 존재(ex. 로그인 세션)
-- HTTP 지속 연결
+</details>
+<details><summary>HTTP 지속 연결</summary>
+
     - HTTP의 비연결성때문에 데이터를 주고받을때마다 연결을 새로 맺어줘야한다.
         - 클라이언트에서 요청해서 응답받을때까지 걸린 시간: RTT, 데이터 다운 시간: TR
     - 그걸 방지하기 위해 HTTP 지속 연결을 지원해준다.
@@ -77,7 +86,9 @@
     - 하지만 지속 연결을 해놓으면 서버 자원이 고갈될 수 있음
     - Http/2 버전은 **멀티 플랙싱**기능으로 단일 TCP 연결을 통해 (Persistent Connection in Http1.x) 다수의 Http 요청과 응답(Http pipelining in Http 1.1)이 **클라이언트와 서버 사이에 응답 지연(Hol : Header of line blocking)없이 stream 형태로 주고 받을 수 있는 기술적 토대**를 만들게 되었다.
     - 따라서 Http/2를 사용한다면 Persistent Connection에 대해 고민할 필요가 없어지게 된다
-- 멀티 플렉싱(Multi-Flexing)이 뭔가요?
+</details>
+<details><summary>멀티 플렉싱(Multi-Flexing)이 뭔가요?</summary>
+
     - **하나의 통신채널을 통해 둘 이상의 데이터(시그널)를 전송하는 데 사용되는 기술**
     - **물리적 장치의 효율을 위해 최소한의 물리적 장치로 최대한의 데이터를 전달하는 기술**
     - 입출력 대상을 하나로 묶어서 관리하는 방법. 클라이언트-서버 모델에서 주로 사용되는 기술
@@ -96,7 +107,9 @@
             - 이 때, 서버에선 다수의 클라이언트의 요청을 받기 위해 멀티 플렉싱 기술을 이용한다.
             - 하나의 서버가 여러개의 파일 디스크립터를 감시한다. 이 파일 디스크립터는 클라이언트와 연결되어있음 (리눅스에선 select, poll 함수를 사용한다.)
 
-- HTTP vs HTTPS
+</details>
+<details><summary>HTTP vs HTTPS</summary>
+
     - HTTP는 평문 데이터를 전송하는 프로토콜
         - 비밀번호나 주민번호등을 주고 받으면 제3자에 의해 조회될 수 있음
     - HTTPS는 자신의 **공개키**를 갖는 인증서를 발급하여 **보내는 메시지를 공개키로 암호화**함.
@@ -124,7 +137,9 @@
             - Client, Server 모두가 서로에게 보내는 Packet으로 교환할 정보를 모두 교화한 뒤 통신할 준비가 다 되었음을 알리는 패킷
             - 'Finished' 패킷을 보내서 SSL Handshake를 종료하게 됨
     - [https://aws-hyoh.tistory.com/entry/HTTPS-통신과정-쉽게-이해하기-3SSL-Handshake](https://aws-hyoh.tistory.com/entry/HTTPS-%ED%86%B5%EC%8B%A0%EA%B3%BC%EC%A0%95-%EC%89%BD%EA%B2%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-3SSL-Handshake)
-- HTTP2 ★
+</details>
+<details><summary>HTTP2 ★</summary>
+
     - SPDY라는 구글의 비표준 개방형 네트워크 프로토콜에 기반한 차기 HTTP 프로토콜
     - 기존 HTTP의 method, status codes, sematics 개념들이 호환
 
@@ -143,5 +158,6 @@
     - HTTP/1.1까지는 한번에 하나의 파일만 전송 가능
     - 여러 파일을 전송할 경우, 선행하는 파일의 전송이 늦어지면, 전체 파일 전송 시간이 늘어나는 문제 발생
     - HTTP/2에서는 여러가지 파일을 한번에 병렬 전송하여 해결
+</details>
 
 [https://minhamina.tistory.com/234](https://minhamina.tistory.com/234)

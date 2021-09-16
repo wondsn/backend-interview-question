@@ -1,4 +1,5 @@
-- JVM의 구조에 대해 설명하세요.★
+<details><summary>JVM의 구조에 대해 설명하세요.★</summary>
+
     - JVM(Java Virtual Machine): Java Byte Code를 OS에 맞게 해석해주는 가상머신
     - Java Compiler가 .java → .class(Java Byte Code)로 변환
     - JVM은 OS가 Java Byte Code를 이해할 수 있도록 해석해주는 역할을 수행
@@ -52,7 +53,9 @@
             - Resolve: 심볼릭 메모리 레퍼런스를 Method Area에 있는 실제 레퍼런스로 교체
         - 초기화
             - Static 변수에 값을 할당한다. (static 블럭이 있다면 이 때 실행)
-- JIT(Just In-Time)이 무엇인가요?
+</details>
+<details><summary>JIT(Just In-Time)이 무엇인가요?</summary>
+
     - 프로그램을 실제 실행하는 시점에 기계어로 번역하는 컴파일 기법
     - 프로그래밍 언어를 읽어가면서 해당 기능에 대응하는 기계어 코드를 실행.
         - 반면 정적 컴파일을 실행하기 전에 프로그램 코드를 기계어로 변역
@@ -62,7 +65,9 @@
         3. 실행엔진에는 Interpreter와 JIT Compiler가 있는데, Interpreter에 의해 Byte Code를 한 줄씩 읽어 실행하다가 적절한 시점에 Byte Code 전체를 컴파일하고 더이상 인터프리팅하지 않고 해당 코드를 직접 실행
     - JIT Compiler에 의해 해석된 코드는 캐시에 보관. 한번 컴파일된 후에는 빠르게 수행할 수 있다
     - 코드 전체를 컴파일하기 때문에 인터프리팅하는 것보다 시간이 오래 걸림. 한번만 실행해도 되는 코드들을 JIT보다 인터프리팅하는 것이 유리
-- 가비지 컬렉터는 무엇인가요? ★★
+</details>
+<details><summary>가비지 컬렉터는 무엇인가요? ★★</summary>
+
     - 사용되지 않는 객체를 알고리즘을 통해 모은 뒤 메모리에서 해제해주는 작업
     - GC에서는 그 중에서 힙 메모리를 다루고 있고, 자바 콜렉터가 인식하고 할당하는 자바 메모리 영역은 힙 영역인 것이다.
     - GC 수거 대상은 어떻게 됩니까?
@@ -118,7 +123,8 @@
             - Heap을 일정한 크기의 Region으로 나눔
             - 전체 Heap이 아닌 Region 단위로 탐색
             - Compact 진행
-- Collection
+</details>
+<details><summary>Collection</summary>
 
     자바에서 `컬렉션 프레임워크(collection framework)`란 **다수의 데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공하는 클래스의 집합** 을 의미합니다
 
@@ -140,7 +146,9 @@
         - TreeMap
         - Properties : key value 쌍으로 저장되지만 value의 타입이 String만 가능하다.
         - Hashtable : HashMap과 구조는 같으며, 단지 Synchronized(동기화) 되어져 있다는 점이 다른점이다.
-- Annotation
+</details>
+<details><summary>Annotation</summary>
+
     - 주석이라는 뜻으로 인터페이스를 기반으로 한 문법이다. 주석과는 그 역할이 다르지만 주석처럼 코드에 달아 클래스에 특별한 의미를 부여하거나 기능을 주입할 수 있다. 또 해석되는 시점을 정할 수도 있다.(Retention Policy) 어노테이션에는 크게 세가지 종류가 존재한다. JDK에 내장된 built-in-annotation(, @Deprecated, @SurpressWarning, @FunctionalInterface), 어노테이션에 대한 정보를 나타내기 위한 어노테이션인 Meta annotation, 그리고 개발자가 직접 만들어내는 Custom Annotation이 있다.
     - 빌트인 어노테이션으로 다음이 있다.
         - Override: 메서드 앞에만 붙일 수 있으며 수퍼클래스의 메소드를 오버라이드한 메소드임을 컴파일러에게 명시한다..
@@ -153,13 +161,16 @@
             - SOURCE: 소스파일에만 존재, 클래스 파일에는 존재 x
             - CLASS: 클래스 파일에는 존재하지만 런타임 시에 사용 불가, Retention 어노테이션 디폴트
             - RUNTIME: 클래스 파일에 존재하며 런타임 시에도 사용 가능하다. 런타임 시에 리플렉션을 통해 클래스 파일에 저장된 어노테이션 정보를 읽어서 처리할 수 있음, 커스텀 어노테이션을 만들 때 주로 사용.
-- stream ★
+</details>
+<details><summary>stream ★</summary>
+
     - 컬렉션 내 데이터의 흐름을 의미
     - 배열 또는 컬렉션 인스턴스에 함수 여러 개를 조합하여 원하는 결과를 필터링하고 가공된 결과를 얻을 수 있음
     - 람다를 이용해 코드의 양을 줄이고 간결하게 표현할 수 있습니다.
     - 하나의 작업을 둘 이상의 작업으로 잘게 나눠서 동시에 진행하는 병렬처리가 가능합니다.
         - 쓰레드를 이용해 많은 요소들을 빠르게 처리할 수 있습니다.
-    - 생성하기: 스트림 인스턴스 생성
+    <details><summary>생성하기: 스트림 인스턴스 생성</summary>
+
         - 배열 스트림: `Arrays.stream` 메소드를 사용할 수 있음
 
             ```java
@@ -272,8 +283,9 @@
             Stream<String> concat = Stream.concat(stream1, stream2);
             // [Java, Scala, Groovy, Python, Go, Swift]
             ```
+        </details>
+    <details><summary>가공하기: 내가 원하는 것만 뽑아낼 수 있음. 가공 단계를 중간 작업(intermediate operations)이라고 부르는데 이러한 작업은 스트림을 리턴하기 때문에 스트림끼리 chaining을 할 수 있음</summary>
 
-    - 가공하기: 내가 원하는 것만 뽑아낼 수 있음. 가공 단계를 중간 작업(intermediate operations)이라고 부르는데 이러한 작업은 스트림을 리턴하기 때문에 스트림끼리 chaining을 할 수 있음
         - Filtering: 스트림 내 요소들을 하나씩 평가해서 걸러내는 작업. 인자는 Predicate를 받음. Predicate는 boolean을 리턴하는 함수형 인터페이스
 
             ```java
@@ -338,6 +350,7 @@
             	.collect(Collectors.toList());
             // [Swift, Scala, Python, Java, Groovy, Go]
             ```
+        </details>
 
     - 결과만들기:
     - Lazy Evaluation(지연 연산)
@@ -394,7 +407,9 @@
         - 자바 스트림에서는 모든 원소에 대해서 연산을 하지 않고 필요로 하는 부분만 연산 처리함
         - 마지막에 collect, findFirst, limit 등이 어떻게 되는지에 따라서 연산하는 엘리먼트 수가 달라집니다.
     - stream과 Collector의 차이 (+ 메모리적 차이)
-- Lambda ★
+</details>
+<details><summary>Lambda ★</summary>
+
     - Stream 연산들은 매개변수로 함수형 인터페이스(Functional Interface)를 받도록 되어있음
     - Stream API를 정확히 이해하기 위해 람다식과 함수형 인터페이스에 대해 알아야 함
     - **함수를 하나의 식(expression)으로 표현**한 것.
@@ -471,7 +486,9 @@
             - Predicate<T>
                 - 객체 T를 매개변수로 받아 처리 후 boolean을 반환한다.
                 - `Boolean test(T t)`을 추상 메소드로 갖는다.
-- Exception과 RuntimeException 차이
+</details>
+<details><summary>Exception과 RuntimeException 차이</summary>
+
 
     ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fe93b794-48b1-4db9-a5e9-59efd2979f16/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fe93b794-48b1-4db9-a5e9-59efd2979f16/Untitled.png)
 
@@ -540,20 +557,28 @@
             - 중첩 예외를 만들어서 던지는 것이 좋음
                 - 전환하려는 예외에 원래 예외를 담는 것
                 - `throws DuplicateUserIdException(e)`
-- 상속 관점에서 private 생성자는 어떤 효과가 있나?
+</details>
+<details><summary>상속 관점에서 private 생성자는 어떤 효과가 있나?</summary>
+
     - private 생성자는 A의 내부 메서드 혹은 Inner Class에서 호출할 수 있다.
     - 부분 클래스가 부모의 생성자를 호출할 수 있기 때문에 이는 상속에 직접적인 영향을 끼침
     - 클래스 A는 상속받을 수 있는데, 자기 자신이 아니면 부모의 내부 클래스에 의해서만 호출이 가능하다.
-- 자바의 finally 블록은 try-catch-finally의 try 블록안에 return문을 넣어도 실행되는가?
+</details>
+<details><summary>자바의 finally 블록은 try-catch-finally의 try 블록안에 return문을 넣어도 실행되는가?</summary>
+
     - 실행됩니다. finally 블록은 try 블록이 종료되는 순간 실행된다.
     - 다음과 같은 경우에서는 finally 블록이 실행되지 않는다.
         - try/catch 블록 수행 중에 가상 머신(Virtual Machine)이 종료됨
         - try/catch 수행하고 있던 스레드가 죽어버림
-- final, finally, finalize의 차이점은?
+</details>
+<details><summary>final, finally, finalize의 차이점은?</summary>
+
     - final: 변수나 메서드 또는 클래스가 '변경 불가능'하도록 만든다.
     - finally: try/catch 블록이 종료될 때 항상 실행도리 코드 블록을 정의하기 위해 사용됨
     - finalize(): GC가 더 이상의 참조가 존재하지 않는 객체를 메모리에서 삭제하겠다고 결정하는 순간 호출되는 메서드.
-- Java의 제네릭 vs C++의 템플릿
+</details>
+<details><summary>Java의 제네릭 vs C++의 템플릿</summary>
+
     - 제네릭과 템플릿은 List<String>처럼 코드를 작성할 수 있다는 이유에서 제네릭과 템플릿을 동일시 함
     - 그리고 컴파일 단계에서 체크가 가능하다는 점
     - 하지만 차이는 컴파일 이후에 발생하게 된다.
@@ -588,13 +613,16 @@
             template<typename T>
             int MyClass<T>::bar;
             ```
+</details>
+<details><summary>TreeMap, HashMap, LinkedHashMap의 차이를 설명하세요.</summary>
 
-- TreeMap, HashMap, LinkedHashMap의 차이를 설명하세요.
     - HashMap: 검색과 삽입에 O(1) 시간이 소요됨. 그렂미나 키를 기준으로 순회할 때 키의 순서는 무작위로 섞여있다. 그리고 클래스의 구현은 연결리스트로 이루어진 배열로 되어있음
     - TreeMap: 검색과 삽입에 O(logN) 시간이 소요. 키는 정렬되어 있으므로 정렬된 순서로 키를 순회할 수 있음. 키는 반드시 Comparable 인터페이스를 구현하고 잇어야 함. 내부에 레드-블랙 트리로 구현되어 있음
     - LinkedHashMap: 검색과 삽입에 O(1)이 소요. 키는 삽입한 순서대로 정렬되어 있고, 양방향 연결 버킷으로 구현되어있음.
     - 보통은 HashMap을 사용함(일반적으로 빠르고 오버헤드가 적음). 삽입한 순서대로 키 정보를 얻고 싶으면 LinkedHashMap을 사용하고, 실제적인 순서대로 키 정보를 얻고 싶으면 TreeMap을 사용하면 됨.
-- 싱글톤 설계 시 주의점
+</details>
+<details><summary>싱글톤 설계 시 주의점</summary>
+
     - 싱글톤은 클래스의 인스턴스를 단 한개만 생성하여 사용하는 패턴
     - 처음 싱글톤 클래스를 호출한 시점에 인스턴스 생성한 후, 그 다음 호출부터는 생성한 인스턴스를 반환하는 방색
     - 생성자를 private으로 선언하고 getInstance 함수를 통해 인스턴스 반환
@@ -785,7 +813,9 @@
             - StringBuffer는 Thread-safe하다
             - StringBuilder는 Thread-safe하지 않는다. 하지만 StringBuffer에 비해 성능은 좋기 때문에, 여러 스레드가 관여되지 않은 상황에선 StringBuilder를 사용하자.
 
-- OOP에 대해 설명해주세요
+</details>
+<details><summary>OOP에 대해 설명해주세요</summary>
+
     - 캡슐화: 객체가 내부적으로 기능을 어떻게 구현했는지 감추는 것
         - 구현에 사용된 데이터 상세 내용을 감춤
         - 캡슐화 하지 않으면? 변경이 연쇄적으로 퍼짐.
@@ -803,7 +833,8 @@
             - 추상화 결과: 사용 대상의 변경 유연함
             - 변경될 때 추상화를 하라: 변경이나 확장이 발생할 때 추상화 하라!!
         - OCP(Open-Closed Principle): 확장에 열려있고 수정에는 닫혀있음
-- List, Set과 Map의 차이 ★
+</details>
+<details><summary>List, Set과 Map의 차이 ★</summary>
 
     [https://t1.daumcdn.net/cfile/tistory/2614AF3655269C1129](https://t1.daumcdn.net/cfile/tistory/2614AF3655269C1129)
 
@@ -849,7 +880,8 @@
             - 기본적으로 HashMap을 상속받아 HashMap과 매우 흡사
             - Map에 있는 엔트리들의 연결 리스트를 유지되므로 입력한 순서대로 반복 가능
     - [https://brunch.co.kr/@springboot/57](https://brunch.co.kr/@springboot/57)
-- 자바 기본 자료형에 대해서 설명해주세요. ★
+</details>
+<details><summary>자바 기본 자료형에 대해서 설명해주세요. ★</summary>
 
     [기본 자료형](https://www.notion.so/580989a1026f4f9d98bf52ae1cfd9ad6)
 
@@ -921,7 +953,9 @@
                 - 래퍼 클래스는 참조형 타입으로 취급됨
                     - 따라서 `==` 비교는 객체간의 주소값을 비교하게됨 → 그래서 false를 반환
                     - 값을 비교할려면 `equals` 메소드를 통해 비교
-- 문자열 비교하기 `== vs. equals()`
+</details>
+<details><summary>문자열 비교하기 `== vs. equals()`</summary>
+
     - String을 생성하는 방법은 2가지 방법이 존재합니다.
         - 리터럴을 이용한 방식(`String s1 = "abcd";`)
         - new 연산자를 이용한 방식
@@ -944,7 +978,9 @@
     }
     ```
 
-- BigInteger
+</details>
+<details><summary>BigInteger</summary>
+
     - long형의 값의 범위를 넘어서 저장할려고 할 때 사용
     - 내부 안에 int array로 담아 넣음
     - 반드시 String 타입으로 저장 ⇒ 자릿수 부족으로 인한 문제 해결

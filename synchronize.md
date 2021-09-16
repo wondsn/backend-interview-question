@@ -1,4 +1,5 @@
-- 프로세스와 쓰레드의 차이
+<details><summary>프로세스와 쓰레드의 차이</summary>
+
     - 프로세스
         - 실행중인 프로그램을 지칭. 프로그램이 디스크부터 메모리에 적재되어 CPU의 지원을 사용하고 있는 작업.
         - 스택과 데이터, 힙 섹션으로 나뉘어져 있다.
@@ -11,7 +12,9 @@
         - 다른 스레드 코드 및 데이터 섹션 공유. 스택과 프로그램 카운터는 각 스레드 내에서만 구성
             - Why? 스택은 인자, 리턴주소 및 로컬변수를 저장하기 위한 독립적인 메모리 공간. 독립적인 메모리 공간이라는 것은 독립적인 실행 흐름을 가질 수 있음. 따라서 스레드의 정의에 따라 독립적인 스택을 갖게 되는 것.
             - PC Register는 명령어 수행 주소를 가리킴. 스레드 역시 스케쥴러에 의해 CPU을 선점당함. 따라서 연속적으로 수행되지 않음. 그래서 PC Register를 스레드마다 저장하여 어디까지 수행되는지 알 필요가 있음
-- 멀티 쓰레딩 장단점
+</details>
+<details><summary>멀티 쓰레딩 장단점</summary>
+
     - 장점
         - 시스템 자원 소모가 줄어듦.
         - 스레드간 통신을 프로세스 내 힙 영역을 통해 통신.
@@ -28,7 +31,9 @@
             - 장점: 임의의 프로세스가 죽는다해도 다른 프로세스에 영향을 끼치지 않음
             - 단점: 대신 많은 메모리와 CPU를 사용.
         - 따라서 대상 시스템의 특징에 따라 유동적으로 사용할 필요가 있음
-- 고유락과 synchronized 블록
+</details>
+<details><summary>고유락과 synchronized 블록</summary>
+
     - 자바의 모든 객체는 락을 갖고 있는데 이걸 고유락(intrinsic lock)이라고 함
     - synchronized 블록은 동시성 문제를 해결하는 가장 간편한 방법. 고유락을 이용해 여러 스레드의 접근을 제어
 
@@ -89,8 +94,9 @@
               }
             }
             ```
+</details>
+<details><summary>비가시성(가시성 이슈)</summary>
 
-- 비가시성(가시성 이슈)
     - 멀티코어를 이용해 병렬 프로그래밍을 수행할 때 발생
     - 자바에서 변수를 수정할때 Read-Modify-Write 과정을 수행
     - 이때, 변수를 메모리에만 저장하지 않고 CPU Cache에도 저장한다.
@@ -145,8 +151,9 @@
             ```
 
             ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dcf602ca-f00d-458f-a977-2ff0c880c9d7/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dcf602ca-f00d-458f-a977-2ff0c880c9d7/Untitled.png)
+</details>
+<details><summary>ExecutorService은 뭔가요?</summary>
 
-- ExecutorService은 뭔가요?
     - 재사용이 가능한 ThreadPool로 Executor 인터페이스를 확장하여 Thread의 라이프사이클을 제어
     - Thread의 라이프사이클(생성, 제거)나 발생할 수 있는 여러가지 low level의 고려사항들이 존재하는데, 이를 개발자가 신경쓰지 않도록 편리하게 추상화한 것이 ExecutorService이다.
     - ExecutorService에 task를 지정하면 ThreadPool에서 Thread에 task를 할당하여 수행
@@ -159,7 +166,8 @@
     - submit된 task는 Blocking Queue에 들어가서 유휴 Thread가 생길때까지 대기합니다.
         - 유휴 Thread가 생기면 먼저 제출한 task를 할당하여 수행
     - Thread를 생성하는 건 비용이 큰 작업이기 때문에 Executor Framework에선 미리 Thread Pool안에 thread를 생성해놓고 관리
-- Blocking/Non-Blocking, Sync/Async의 차이
+</details>
+<details><summary>Blocking/Non-Blocking, Sync/Async의 차이</summary>
 
     ![https://musma.github.io/assets/song/2019-04-17/figure1.gif](https://musma.github.io/assets/song/2019-04-17/figure1.gif)
 
@@ -209,7 +217,8 @@
         > 나 : 😍
 
     - [https://youtu.be/oEIoqGd-Sns](https://youtu.be/oEIoqGd-Sns)
-- 스프링에서 `@Async`가 어떻게 동작하는가요?
+</details>
+<details><summary>스프링에서 `@Async`가 어떻게 동작하는가요?</summary>
     - 스프링의 AOP에 의해서 동작. @Async 어노테이션이 선언된 메서드는 비동기 메서드로 동작
     - AOP를 따라가다 보면 `AsyncExecutionAspectSupport`에 다다른다. 여기서 `doSubmit` 메서드에 주목
     - 이 때 선언된 메서드의 리턴타입에 따라서 비동기 메서드를 수행하는 로직이 다르다.
@@ -246,3 +255,4 @@
         - 하지만 논블록킹으로 사용할거면 `thenAccept`, `thenApply` 메서드를 통해 콜백 메서드를 등록할 수 있음
 
             ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/684562e4-9002-43c7-a324-84d50b0c7865/Untitled.png)
+</details>
