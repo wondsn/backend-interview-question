@@ -41,10 +41,8 @@
         - 리스트의 크기에 영향 없이 데이터를 추가할 수 있음
         - 데이터를 추가하기 위해 새로운 노드를 생성하여 연결하기 때문에 추가/삭제 연산이 빠름
         - 무작위 접근이 불가능하고, 순차 접근만 가능.
-
-    [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbT9vAg%2FbtqOzASZJPM%2FTKQmop7XQziU6aqM5Kdmik%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbT9vAg%2FbtqOzASZJPM%2FTKQmop7XQziU6aqM5Kdmik%2Fimg.png)
+![alt ><](/images/arraylist_linkedlist.png)
 </details>
-
 <details><summary>Array와 ArrayList의 차이점은 뭔가요?</summary>
 
     - Array는 고정 길이입니다. 주어진 배열을 모두 채운 상태에서, 새 데이터를 추가하고 싶으면 새로운 배열을 만들어줘야 합니다.
@@ -65,12 +63,13 @@
 </details>
 <details><summary>자료구조 시간 복잡도</summary>
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b4e2eff-bf04-44d3-946c-d1fccc4a0438/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6b4e2eff-bf04-44d3-946c-d1fccc4a0438/Untitled.png)
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b1d62a2-d74b-4a9a-8a8d-43a479a42a5a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b1d62a2-d74b-4a9a-8a8d-43a479a42a5a/Untitled.png)
-
+![alt ><](./images/시간복잡도_그래프.png)
+![alt ><](./images/알고리즘별_시간복잡도.png)
+<!--img src='./images/시간복잡도_그래프.png' align="center" />
+<img src="./images/알고리즘별_시간복잡도.png" align="center" /-->
 </details>
-<details><summary>정렬 알고리즘 시간&공간 복잡도</summary>
 
-    ![시간 공간 복잡도](./images/time_space_complexity.png)
+<details><summary>정렬 알고리즘 시간&공간 복잡도</summary>
+    <img src="./images/time_space_complexity.png" />
+
 </details>

@@ -33,8 +33,10 @@
     - Blue-Green Update
     - Canary Update
 </details>
+
 - DDD(Domain-Driven Design)이 무엇인가요??
 - MSA 아키텍처 설명: [https://woongsin94.tistory.com/383](https://woongsin94.tistory.com/383)
+
 <details><summary>RabbitMQ와 Kafka가 어떻게 다른가요?</summary>
 
     - RabbitMQ는 메시지 브로커 방식이고, Kafka는 Pub/Sub 방식입니다.
@@ -78,7 +80,7 @@
         - Pub/Sub Model: 여러 Subscriber들에게 동일한 메시지를 전달하고 토픽 기반으로 전달 내용을 변경하는 모델은 컨슈머 그룹으로 묶습니다.
     - publish-subscribe 모델을 기반으로 동작. 크게 producer(메시지 생산자) - broker(메시지 수집/전달) - consumer(메시지 소비자)로 구성
 
-    ![https://baek.dev/assets/images/post/2020/2020_020_005.jpg](https://baek.dev/assets/images/post/2020/2020_020_005.jpg)
+![alt ><>](/images/kafka_img0.jpg)
 
     - Broker: 데이터를 수신, 전달하는 서비스
     - Message: 카프카에서 다루는 데이터의 최소단위. 메시지는 Key와 Value를 갖게되며 나중에 언급할 메시지 전송할 때 파티셔닝에 이용
@@ -89,7 +91,7 @@
         - 브로커에 배치되어 관리됨
         - 프로듀서와 컨슈머는 특정 토픽을 지정하여 메시지를 송수신함으로써 단일 카프카 클러스터에서 여러 종류의 메시지를 중계함
 
-    ![https://baek.dev/assets/images/post/2020/2020_020_006.jpg](https://baek.dev/assets/images/post/2020/2020_020_006.jpg)
+![alt ><](/images/kafka_img1.jpg)
 
     - Broker
 
@@ -119,7 +121,7 @@
 
     - Offset
 
-        ![https://baek.dev/assets/images/post/2020/2020_020_007.jpg](https://baek.dev/assets/images/post/2020/2020_020_007.jpg)
+![alt ><](/images/kafka_img2.jpg)
 
         각 파티션에 수산한 메시지에 일련번호를 부여합니다. 파티션 단위로 메시지 위치를 나타내는 오프셋이라는 관리 정보를 이용해 컨슈머가 취득하는 메시지의 범위 및 재시도를 제어합니다.
 
@@ -129,7 +131,7 @@
 
     - Producer - Broker - Consumer로 구성되어 있습니다.
 
-        [https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc1jNIo%2FbtqF3Gz7CXx%2FE5DgxajmcBCNjN25eELvhK%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc1jNIo%2FbtqF3Gz7CXx%2FE5DgxajmcBCNjN25eELvhK%2Fimg.png)
+![alt ><](/images/rabbitmq_img0.png)
 
         RabbitMQ 메시지 브로커는 Publisher로부터 메시지를 받아서 이를 Consumer에게 라우팅해준다. Publisher가 발행한 메시지는 먼저 Exchange에 도착하게 되고 이 Exchange는 Binding(Routing Rule)이라고 불리는 규칙을 이용해 특정 Queue에 메시지를 복사해 넣는다. 그럼 이 Queue를 수신하고 있는 Consumer가 메시지를 당겨(fetch/pull)갈 수 있게 된다.
 
@@ -139,7 +141,7 @@
 
         **Direct Exchange**
 
-        ![https://www.rabbitmq.com/img/tutorials/direct-exchange.png](https://www.rabbitmq.com/img/tutorials/direct-exchange.png)
+![alt ><](/images/rabbitmq_img1.png)
 
         Exhange X로 전달된 메시지의 routing key가 orange인 경우 Q1으로 전달되고, block, green인 경우 Q2로 전달된다. 그밖에 다른 메시지는 무시된다.
 
@@ -159,7 +161,7 @@
 
         `*`와 `#`을 이용해 와일드 카드를 표현할 수 있습니다. `*`는 단어 하나 일치 `#`은 0 또는 1개 이상의 단어 일치를 의미합니다.
 
-        ![https://www.rabbitmq.com/img/tutorials/python-five.png](https://www.rabbitmq.com/img/tutorials/python-five.png)
+![alt ><](/images/rabbitmq_img2.png)
 
         다음과 같이 binding key를 정의한 경우 메시지의 `routing key`가 `quick.orange.rabbit` 또는 `lazy.orange.elephant`이면 Q1, Q2 둘다 전달된다. lazy.pink.rabbit는 binding key 2개와 일치하더라도 1번만 전달된다.
 
