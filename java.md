@@ -936,13 +936,13 @@ class Printer {
 
     ```java
     public class WrapperEx {
-    	public static void main(String[] args) {
-    		String str1 = "10";
-    		String str2 = "10.5";
-    		String str3 = "true";
+        public static void main(String[] args) {
+            String str1 = "10";
+            String str2 = "10.5";
+            String str3 = "true";
 
-    		byte b = Byte.parseByte(str1);
-    		int i = Integer.parseInt(str);
+            byte b = Byte.parseByte(str1);
+            int i = Integer.parseInt(str);
             short s = Short.parseShort(str);
             long l = Long.parseLong(str);
             float f = Float.parseFloat(str2);
