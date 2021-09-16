@@ -956,7 +956,7 @@ class Printer {
             System.out.println("문자열 float값 변환 : "+f);
             System.out.println("문자열 double값 변환 : "+d);
             System.out.println("문자열 boolean값 변환 : "+bool);
-    	}
+        }
     }
     ```
 
