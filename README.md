@@ -8,7 +8,7 @@
 
 [JPA](jpa.md)
 
-[네트워크](netword.md)
+[네트워크](network.md)
 
 [자료구조 & 알고리즘](algorithm.md)
 
